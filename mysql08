@@ -1,0 +1,8 @@
+FROM mysql:8.0
+
+ENV MYSQL_ROOT_PASSWORD=admin
+# 字符集
+ENV MYSQL_CHARACTER_SET_SERVER=utf8mb4
+
+# 时区
+ENV TZ=Asia/Shanghai
