@@ -27,7 +27,7 @@ RUN echo "trusted-host=mirrors.aliyun.com" >> ~/.pip/pip.conf
 RUN echo "index-url=http://mirrors.aliyun.com/pypi/simple/" >> ~/.pip/pip.conf
 
 # 启动
-EXPOSE 8888
+# EXPOSE 8888
 
 # sleep inf
 CMD ["tail", "-f", "/dev/null"]
