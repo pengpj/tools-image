@@ -12,7 +12,7 @@ RUN echo deb-src https://mirrors.aliyun.com/debian/ bookworm-updates main non-fr
 RUN echo deb https://mirrors.aliyun.com/debian/ bookworm-backports main non-free non-free-firmware contrib >> /etc/apt/sources.list
 RUN echo deb-src https://mirrors.aliyun.com/debian/ bookworm-backports main non-free non-free-firmware contrib >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y iputils-ping curl libmariadb-dev-compat libmariadb-dev gcc python3-mysqldb openssl swig libpng-dev net-tools libjpeg-dev nginx git
+RUN apt-get install -y iputils-ping curl libmariadb-dev-compat libmariadb-dev gcc python3-mysqldb openssl swig libpng-dev net-tools libjpeg-dev nginx git vim
 
 #定义时区参数
 ENV TZ=Asia/Shanghai
