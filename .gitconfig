@@ -1,0 +1,64 @@
+# ========== 基础配置 ==========
+[user]
+    name = Your Name          # 必填：提交者姓名
+    email = your.email@example.com  # 必填：提交者邮箱
+
+[core]
+    editor = code --wait      # 使用VSCode（可选vim/nano）
+    autocrlf = input          # Linux/macOS推荐；Windows设为true
+    excludesfile = ~/.gitignore_global  # 全局忽略文件路径
+    symlinks = true           # 正确处理符号链接
+
+# ========== 别名与效率优化 ==========
+[alias]
+    st = status -sb           # 简洁状态显示
+    co = checkout
+    br = branch -vv           # 显示跟踪分支信息
+    cm = commit -m
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  # 图形化历史
+    slog = log --stat --abbrev-commit
+    undo = reset HEAD~1 --soft # 撤销提交保留修改
+    dc = diff --cached        # 查看暂存区差异
+
+# ========== 显示与交互 ==========
+[color]
+    ui = auto                 # 启用颜色高亮
+[interactive]
+    diffFilter = diff --color # 交互式补丁选择着色
+[log]
+    date = relative           # 显示相对时间（如"2天前"）
+
+# ========== 合并与差异工具 ==========
+[merge]
+    tool = meld               # 图形化合并工具
+    conflictstyle = diff3     # 显示共同祖先内容
+[mergetool "meld"]
+    # Windows路径示例：cmd = \"C:/Program Files/Meld/meld.exe\" \"$$LOCAL\" \"$$BASE\" \"$$REMOTE\" --output \"$$MERGED\"
+    cmd = meld "$$LOCAL" "$$BASE" "$$REMOTE" --output "$$MERGED"
+
+[diff]
+    tool = meld
+    algorithm = histogram     # 更智能的差异比较
+
+# ========== 网络与凭证 ==========
+[credential]
+    helper = cache --timeout=86400  # 凭证缓存24小时（Windows用wincred）
+[http]
+    postBuffer = 1048576000   # 解决大文件推送问题（1GB）
+    sslVerify = true          # 内网环境可设为false
+
+# ========== 分支与提交策略 ==========
+[branch]
+    autosetuprebase = always  # 新分支默认使用rebase
+[push]
+    default = current         # 推送当前分支到同名远程分支
+[commit]
+    verbose = true            # 提交时显示差异
+    template = ~/.gitmessage  # 提交信息模板（可选）
+
+[credential "http://code.37ops.com"]
+	provider = generic
+[credential "https://code.37ops.com"]
+	provider = generic
+[credential "https://gitee.com"]
+	provider = generic

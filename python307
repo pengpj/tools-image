@@ -12,7 +12,7 @@ RUN echo deb-src https://mirrors.aliyun.com/debian/ bookworm-updates main non-fr
 RUN echo deb https://mirrors.aliyun.com/debian/ bookworm-backports main non-free non-free-firmware contrib >> /etc/apt/sources.list
 RUN echo deb-src https://mirrors.aliyun.com/debian/ bookworm-backports main non-free non-free-firmware contrib >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y iputils-ping curl libmariadb-dev-compat libmariadb-dev gcc python3-mysqldb openssl swig libpng-dev net-tools libjpeg-dev nginx
+RUN apt-get install -y iputils-ping curl libmariadb-dev-compat libmariadb-dev gcc python3-mysqldb openssl swig libpng-dev net-tools libjpeg-dev nginx git
 
 #定义时区参数
 ENV TZ=Asia/Shanghai
@@ -25,9 +25,7 @@ RUN mkdir -p ~/.pip
 RUN echo "[global]" >> ~/.pip/pip.conf
 RUN echo "trusted-host=mirrors.aliyun.com" >> ~/.pip/pip.conf
 RUN echo "index-url=http://mirrors.aliyun.com/pypi/simple/" >> ~/.pip/pip.conf
-
-# 启动
-# EXPOSE 8888
+ADD .gitignore ~/
 
 # sleep inf
 CMD ["tail", "-f", "/dev/null"]
