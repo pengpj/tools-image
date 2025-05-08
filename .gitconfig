@@ -56,9 +56,5 @@
     verbose = true            # 提交时显示差异
     template = ~/.gitmessage  # 提交信息模板（可选）
 
-[credential "http://code.37ops.com"]
-	provider = generic
-[credential "https://code.37ops.com"]
-	provider = generic
 [credential "https://gitee.com"]
 	provider = generic
